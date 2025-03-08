@@ -7,7 +7,7 @@ const connectDB = require('./config/db');
 const cookieParser = require('cookie-parser');
 
 connectDB();
-const PORT = process.env.PORT || 3000;  // Use Railway's PORT if available
+
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser()); 
@@ -18,6 +18,7 @@ app.use(express.static('public'));
 
 app.use('/',staticRouter);
 app.use('/content', webcontentRouter)
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 3000;  
+app.listen(PORT, '0.0.0.0', () => {  
   console.log(`Server is running on port ${PORT}`);
-})
+});
