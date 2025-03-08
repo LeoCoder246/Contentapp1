@@ -19,5 +19,5 @@ app.use(express.static('public'));
 app.use('/',staticRouter);
 app.use('/content', webcontentRouter)
 app.listen(PORT, () => {
-  console.log(`Server is running on port http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 })
