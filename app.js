@@ -7,7 +7,7 @@ const connectDB = require('./config/db');
 const cookieParser = require('cookie-parser');
 
 connectDB();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;  // Use Railway's PORT if available
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser()); 
