@@ -1,0 +1,69 @@
+<div class="header">
+  <nav class="navbar">
+      <div class="left-section"><img class="logo-icon" src="/icons/wolf.PNG" width="70px" >
+          <img class="logo-name" src="/icons/wolf1.png">
+      </div>
+<% if(!user){ %>
+      <ul class="navbar-nav" >
+         
+          <div class="nav-item">
+              <a href="/login" class="nav-link">Login</a>
+            </div>
+          <div class="nav-item">
+              <a href="/register" class="nav-link">Register</a>
+          </div>
+          <%} else { %>
+            <div class="nav-item">
+              <a  ><%= user.username %></a>
+            </div>
+            <div class="nav-item">
+              <a href="/register" class="nav-link">Register</a>
+            </div>
+          <div class="nav-item">
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+          </div>
+      </ul>
+          <% } %>
+    
+  </nav>
+  
+</div>
+<div class="sidebar">
+
+      <ul class="sidebar-nav" style="padding-top: 30px;">
+          <li class="active" style="border-top: 1px solid #ccc;">
+            <a href="/home"> <div class="icon-name" > 
+                   <img class="sidebar-icons"  src="/icons/icons8-home-48.png"> 
+                      <div class="sidebar-text">HOME </div>
+                  
+              </div>
+            </a>
+          </li>
+          <li class="active">
+            <a href="/content/videos">
+            <div class="icon-name" > 
+                  <img class="sidebar-icons"  src="/icons/icons8-about-48.png"> <div class="sidebar-text">VIDEOS</div>
+                  
+              </div>
+            </a>
+          </li>
+          <li class="active" >
+            <a href="/contact">
+            <div class="icon-name" > 
+                       <img class="sidebar-icons"  src="/icons/icons8-contact-us-50.png"> <div class="sidebar-text">CONTACT</div>
+                     
+                  </div>
+                </a> 
+          </li>
+          <li class="active" id="toggleButton">
+            <div class="icon-name" > 
+                       <img class="sidebar-icons"  src="/icons/icons8-contact-us-50.png"> <div class="sidebar-text">NOTICES</div>
+                     
+                  </div>
+                </a> 
+          </li>
+      
+      </ul>
+
+ 
+</div>

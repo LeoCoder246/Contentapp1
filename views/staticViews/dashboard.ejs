@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/navbarStyles.css">
+    <link rel="stylesheet" href="/css/dashboardStyles.css">
+</head>
+<body>
+  <%- include ('../partials/header-sidebar.ejs') -%>
+  
+  <div class="main-content" >
+   
+    <div class="dashboard-main">
+      <div class="dashboard-user-upload">
+        <div class="dashboard-user-details">
+          <div class=" user-info">
+            <div >
+              <h2 style="text-align: start;">Welcome,</h2>
+              <div style="display: flex; flex-direction: row; margin-top: 20px;  border-bottom: 3px solid rgb(194, 144, 144);">
+                <div style="border-radius: 20px; width: 50px; height: 50px; border: 1px solid rgb(110, 110, 110); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                  <img src="/icons/wolf.PNG" alt="Card Image" width="50px" height="50px" style="border-radius: 20px; object-fit: cover;">
+              </div>
+              
+                
+                <div style="margin: 20px; font-size: 18px; font-weight: 500;">
+                  <p>Username: <span style="color: rgb(28, 27, 27);"> <%= user.username %></span> </p>
+              </div>
+             
+               
+              </div>
+              
+            </div>
+
+            <div class="user-data-main">
+              <p class="user-data">Your Email: <%= user.email %></p>
+              <p class="user-data">  Your ID: <%= user._id %></p>
+              <p class="user-data">Login Role: <%= user.role %></p>
+             </div>
+          </div>
+
+           <div class="user-button">
+            <button class="btn" >Edit</button>
+            <a href="/logout"> <button class="btn">Logout</button></a>
+           </div>
+        </div>
+      <div class="upload-main">
+
+        <div class="upload-forms-div js-upload-video">
+          <div class="upload-forms-text ">
+            Upload Videos
+          </div>
+          <div style="margin-left: 160px;margin-bottom: 10px;">
+            <img src="/icons/icons8-upload-52.png" alt="Card Image" width="30px" height="30px" style=" ">
+          </div>
+        </div>
+        <div class="upload-forms-div js-upload-announcement">
+          <div class="upload-forms-text">
+            Upload Announcements
+          </div>
+          <div style="margin-left: 160px;margin-bottom: 10px;">
+            <img src="/icons/icons8-upload-52.png" alt="Card Image" width="30px" height="30px">
+          </div>
+        </div>
+        <div class="upload-forms-div js-upload-notice">
+         <div class="upload-forms-text">
+           Upload notices
+         </div>
+         <div style="margin-left: 160px;margin-bottom: 10px;">
+           <img src="/icons/icons8-upload-52.png" alt="Card Image" width="30px" height="30px" style=" ">
+         </div>
+        </div>
+      </div>
+      </div>
+     
+      <div class="dashboard-sidebar js-dashboard-sidebar "> 
+        <h2 >About Our Website</h2>
+        <p class="p">Welcome to <span class="highlight">BlackWolf</span>, your go-to platform for <span class="highlight">educational content, video streaming, and knowledge sharing</span>.</p>
+
+        <h3 >Our Mission</h3>
+        <p class="p">We aim to provide high-quality learning materials and an interactive experience for users seeking knowledge in various subjects.</p>
+
+        <h3>Features</h3>
+        <ul class="p">
+            <li>Educational Video Streaming</li>
+            <li>Subject-wise Categorization</li>
+            <li>Interactive Learning Tools</li>
+            <li>PDF Generation for Study Materials</li>
+        </ul>
+
+        <h3>Contact Us</h3>
+        <a href="mailto:leo.coder246@gmail.com" >
+        <p class="p">For any inquiries, reach out to us at: <span class="highlight">leo.coder246@gmail.com</span></p></a>
+      </div>
+    </div>
+  </div>
+     
+   <script src="/js/dashboardScript.js"></script>
+</body>
+</html>

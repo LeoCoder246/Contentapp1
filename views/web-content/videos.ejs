@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Streaming Navbar</title>
+    <link rel="stylesheet" href="/css/navbarStyles.css" />
+    <link rel="stylesheet" href="/css/videoStyles.css" />
+  </head>
+  <body>
+    <%- include ('../partials/header-sidebar.ejs') -%>
+    <div class="main-content" >
+      <div style="display: flex; flex-direction: column;">
+        <div  style="display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(210, 197, 197);
+        height: 55px;
+       
+        margin-left: 20px;
+        transition: 0.5s;
+        font-size: 11px;
+        padding: 10px;">
+
+         <!--<ul class="sidebar-nav" style="display: flex;flex-direction: row; width: 100%;">
+              <li class="active" >
+                <a href="/home"> <div class="icon-name" style="margin-bottom: 20px;box-shadow: none;"> 
+                       <img class="sidebar-icons"  src="/icons/icons8-home-48.png"> 
+                          <div class="sidebar-text">HOME </div>
+                      
+                  </div>
+                </a>
+              </li>
+              <li class="active">
+                <a href="/content/videos">
+                <div class="icon-name" style="margin-bottom: 20px; box-shadow: none;"> 
+                      <img class="sidebar-icons"  src="/icons/icons8-about-48.png"> <div class="sidebar-text">VIDEOS</div>
+                      
+                  </div>
+                </a>
+              </li>
+              <li class="active">
+                <a href="/contact">
+                <div class="icon-name"  style="margin-bottom: 20px;box-shadow: none;"> 
+                           <img class="sidebar-icons"  src="/icons/icons8-contact-us-50.png"> <div class="sidebar-text">CONTACT</div>
+                         
+                      </div>
+                    </a> 
+              </li>
+              <li class="active" id="toggleButton">
+                <div class="icon-name" style="margin-bottom: 20px;box-shadow: none;"> 
+                           <img class="sidebar-icons"  src="/icons/icons8-contact-us-50.png"> <div class="sidebar-text">NOTICES</div>
+                         
+                      </div>
+                    </a> 
+              </li>
+          
+          </ul>-->
+    
+     
+    </div>
+        <div class="container1"  style="width: 94%; height: 100%;" >
+          <div class="container">
+            <% videos.forEach(video => { %>
+            <div class="card">
+              <img src="<%= video.imageUrl %>" alt="Card Image" class="card-image" />
+          
+              <div class="card-content">
+                <h3 class="card-title"><%= video.title %></h3>
+                <p class="card-text">
+                 <%= video.description %>
+                </p>
+                 <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                  <div><%= video.createdBy.username %></div>
+                  <div><%= new Date(video.createdAt).toLocaleDateString() %></div>
+                 
+                 </div>
+              </div>
+            </div>
+            <%})%>
+        
+  
+          </div>
+       </div>
+      </div>
+   
+        <div class="video-sidebar" id="videoSidebar">
+          <div class="sidebar-title">NOTICES <%= notices.length %></div>
+          <div class="notice-container">
+            <% notices.forEach(notice => { %>
+              <div class="notice-item">
+                <div class="notice-info-container">
+                  <div style="font-size: 13px; color: rgb(134, 132, 132);"><%= notice.createdBy.username %></div>
+                  <div style="font-size: 11px; color: rgb(162, 161, 161);"><%= new Date(notice.createdAt).toLocaleDateString() %></div>
+                </div>
+                <pre class="notice-text"><%= notice.notice %></pre>
+             
+              </div>
+            <% }) %>
+          </div>
+         <% if (user.role === 'admin') {%>
+          <div class="notics-form">
+            <form action="/content/notice" method="POST" style="display: flex; flex-direction: row;">
+            
+                <input class="notice-input" type="text" name="notice" placeholder="Enter Notice">
+                <button type="submit" style="height: 30px; width: 30px; border: none; background: none; cursor: pointer; ">
+                    <img   src="/icons/arrow-right.png" width="30px" style="margin-top: 4px;" alt="Send">
+                </button>
+            </form>
+        </div>
+        <% } %>
+        </div>
+    
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

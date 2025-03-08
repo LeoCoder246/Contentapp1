@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/css/navbarStyles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 15px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            background: url('hero.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ff5733;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .features {
+            padding: 50px 20px;
+        }
+        .feature-box {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            display: inline-block;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <%- include ('../partials/header-sidebar.ejs') -%>
+    <div class="main-content " style="margin-left: -20px; ">
+        <div style="background-color: rgb(42, 37, 37);">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Welcome to BlackWolf</h1>
+                    <p>Learn, Explore, Optimize</p>
+                    <a href="/register" class="btn">Register</a>
+                </div>
+            </section>
+            <section id="features" class="features">
+                <h2>Our Features</h2>
+                <div class="feature-box">High Quality Content</div>
+                <div class="feature-box">Innovative Learning</div>
+                <div class="feature-box">User-Friendly Design</div>
+            </section>
+        </div>
+   
+
+</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const btn = document.querySelector(".btn");
+            btn.addEventListener("mouseover", function() {
+                btn.style.background = "#ff3300";
+            });
+            btn.addEventListener("mouseout", function() {
+                btn.style.background = "#ff5733";
+            });
+        });
+    </script>
+</body>
+</html>

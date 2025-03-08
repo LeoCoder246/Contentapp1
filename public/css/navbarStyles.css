@@ -1,0 +1,137 @@
+*{
+
+  margin: 0;
+  padding: 0;
+  font-family: roboto,arial;
+  
+  }
+
+  .left-section {
+    width: 150px;
+    display: flex;
+    
+    align-items: center;
+    height:90px;
+    padding-left: 15px;
+    margin-left: 10px;
+    cursor: pointer;
+  flex: 4;
+  
+  }
+ 
+  
+  .logo-icon {
+    width: 70px;
+    border-radius: 50%;
+    
+  }
+  
+  .logo-name{
+    width: 70px;
+    margin-top: 39px;
+    margin-left: -27px;
+  
+  }
+ 
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    background-color: rgb(210, 197, 197);
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+  }
+
+  ul{
+    list-style: none;
+    
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  .navbar-nav{
+    font-size: 17px;
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+    
+  }
+ 
+
+.nav-link:hover{
+  color: #000;
+  text-decoration:underline;
+  transition: 0.3s;
+
+}
+.sidebar{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(238, 238, 238);
+  height: 100vh;
+  width: 140px;
+  top: 70px;
+  left: 0;
+  position: fixed;
+  transition: 0.5s;
+  font-size: 11px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+.sidebar-nav{
+  display: flex;
+  flex-direction: column;
+ margin-top: 16px;
+  align-items: center;
+  width: 100%;
+  transition:  background-color 0.3s ease;
+}
+.sidebar-nav li :hover{
+
+  background-color: rgb(230, 229, 227);
+  border-bottom: 2px solid rgb(0, 0, 0); 
+}
+.sidebar-nav li {
+  width: 100%;
+  list-style: none; /* Remove default bullets */
+   /* Add spacing between items */
+   border-bottom: 1px solid #ccc; /* Add a border at the bottom */
+}
+.main-content {
+  margin-left: 120px;
+  padding-top: 100px;
+
+}
+.nav-item{
+  margin: 10px;
+ 
+}
+.icon-name {
+  display: flex;
+  gap: 10px; /* Space between icon & text */
+  padding: 20px;
+}
+.icon-name:hover {
+  box-shadow: 5px 0px 6px rgba(37, 37, 37, 0.2);
+
+}
+
+
+.sidebar-icons {
+  width: 18px; /* Adjust icon size */
+  height: 18px;
+  margin-bottom: 4px;
+}
+.sidebar-text{
+  padding-top: 3px;
+}
