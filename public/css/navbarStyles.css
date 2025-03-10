@@ -77,7 +77,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(238, 238, 238);
+  background-color: rgb(210, 197, 197);
   height: 100vh;
   width: 140px;
   top: 70px;
@@ -85,8 +85,7 @@
   position: fixed;
   transition: 0.5s;
   font-size: 11px;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+
 }
 .sidebar-nav{
   display: flex;
@@ -96,16 +95,11 @@
   width: 100%;
   transition:  background-color 0.3s ease;
 }
-.sidebar-nav li :hover{
-
-  background-color: rgb(230, 229, 227);
-  border-bottom: 2px solid rgb(0, 0, 0); 
-}
 .sidebar-nav li {
   width: 100%;
   list-style: none; /* Remove default bullets */
    /* Add spacing between items */
-   border-bottom: 1px solid #ccc; /* Add a border at the bottom */
+   border-bottom: 1px solid #c29696c9; /* Add a border at the bottom */
 }
 .main-content {
   margin-left: 120px;
@@ -123,7 +117,9 @@
 }
 .icon-name:hover {
   box-shadow: 5px 0px 6px rgba(37, 37, 37, 0.2);
-
+  border-bottom: 2px solid rgb(0, 0, 0);
+  background-color: rgba(214, 182, 182, 0.811);
+  
 }
 
 

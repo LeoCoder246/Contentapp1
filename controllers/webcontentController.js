@@ -51,3 +51,23 @@ exports.postVideo = async (req, res) => {
   });
   res.redirect('/content/videos');
 }
+exports.deleteVideo = async (req, res) => {
+  const videoId = req.params.id;
+  await Video.findByIdAndDelete(videoId);
+  res.redirect('/content/videos');
+};
+exports.getVideoById = async (req, res) => {
+  try {
+      const videoId = req.params.id;
+      const video = await Video.findById(videoId).populate('createdBy');
+      
+      if (!video) {
+          return res.status(404).send("Video not found!");
+      }
+
+      res.render('web-content/videopage', { video });
+  } catch (error) {
+      console.error("Error fetching video:", error);
+      res.status(500).send("Server error!");
+  }
+};
