@@ -11,7 +11,14 @@ connectDB();
 const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser()); 
-
+if (process.env.NODE_ENV === "production") {
+  app.use((req, res, next) => {
+    if (req.headers["x-forwarded-proto"] !== "https") {
+      return res.redirect(`https://${req.headers.host}${req.url}`);
+    }
+    next();
+  });
+}
 app.set('view engine','ejs');
 app.set('views', path.resolve('./views'));
 app.use(express.static('public'));
