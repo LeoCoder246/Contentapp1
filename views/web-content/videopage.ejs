@@ -3,14 +3,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Display</title>
+    <link rel="stylesheet" href="/css/navbarStyles.css" />
+    <link rel="stylesheet" href="/css/videoStyles.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
+           
         }
         video {
-            width: 80%;
+            width: 93%;
             max-width: 800px;
             border: 2px solid #333;
             border-radius: 10px;
@@ -21,17 +23,32 @@
     </style>
 </head>
 <body>
-    <h1>Watch Video</h1>
-    <video id="videoPlayer" controls>
-        Your browser does not support the video tag.
-    </video>
-    <div class="video-info">
-        <h2 id="videoTitle"><%= video.title %></h2>
-        <p id="videoDescription"><%=video.description%></p>
-        <p><strong>Created by:</strong> <span id="videoCreator"><%=video.createdBy.username%></span></p>
-        <p><strong>Date:</strong> <span id="videoDate"><%= new Date(video.createdAt).toLocaleDateString()%></span></p>
-    </div>
-   
+    <%- include ('../partials/header-sidebar.ejs') -%>
+    <div class="main-content" style=" flex-direction: column;">
 
+        <div class="container1" style="width: 93%;margin-left: 20px;">
+        <div class="category-video-main" style="width: auto;" > 
+            <div class="category-container js-category-container">
+              Categorys
+            </div>
+             <ul class=" js-category-main ">
+             </ul>
+            </div>
+        <div class="video-container">
+
+        <video id="videoPlayer" controls width="670px" height="450px">
+            <source src="<%= video.videoUrl %>" type="video/mp4" >
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-info">
+            <h2 id="videoTitle"><%= video.title %></h2>
+            <p id="videoDescription"><%=video.description%></p>
+            <p><strong>Created by:</strong> <span id="videoCreator"><%=video.createdBy.username%></span></p>
+            <p><strong>Date:</strong> <span id="videoDate"><%= new Date(video.createdAt).toLocaleDateString()%></span></p>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -49,11 +49,7 @@ const postLogin =async (req, res) => {
         const token = createToken(user);
 
         // Set token in cookie & redirect
-        res.cookie('token', token, {
-            httpOnly: true, 
-            secure: process.env.NODE_ENV === "production", // Secure only in production
-            sameSite: "Lax", // Prevents CSRF issues
-        });
+        res.cookie('token', token, { httpOnly: true, secure: true });
         res.redirect('/dashboard');  // 🔹 Redirect to dashboard after login
     } catch (error) {
         res.status(500).json({ message: "Server error" });

@@ -4,35 +4,38 @@ document.querySelector('.js-upload-video').addEventListener('click', () => {
   //<input type="file" id="videoFile" name="videoFile" accept="video/*">
   // Clear existing content
   sidebar.innerHTML = "";
-  sidebar.innerHTML = `<div >
+  sidebar.innerHTML = `<div>
 
   <h2>Upload Videos</h2>
- 
-<form action="/content/video" method="POST" class="video-form">
 
-  <label for="videoTitle" class="form-label">Title:</label>
-  <input type="text" id="videoTitle" name="title" placeholder="Enter video title" required>
+  <form action="/content/video" method="POST" enctype="multipart/form-data" class="video-form">
 
-  
-  
-    <label class="form-label">Enter imageUrl</label>
-    <input type="text" id="imageUrl" name="imageUrl" ">
-   
-  <label for="description" class="form-label">Description:</label>
-  <textarea type="text" id="description" name="description" placeholder="Enter video description " required></textarea>
+    <label for="videoTitle" class="form-label">Title:</label>
+    <input type="text" id="videoTitle" name="title" placeholder="Enter video title" required>
 
-  <label for="videoCategory" class="form-label">Select Category:</label>
-  <select id="videoCategory" name="videoCategory" required>
+    <label for="videoFile" class="form-label">Upload Video:</label>
+    <input type="file" id="videoFile" name="videoUrl" accept="video/*" required>
+
+    <label for="thumbnailFile" class="form-label">Upload Thumbnail:</label>
+    <input type="file" id="thumbnailFile" name="imageUrl" accept="image/*" required>
+
+    <label for="description" class="form-label">Description:</label>
+    <textarea id="description" name="description" placeholder="Enter video description" required></textarea>
+
+    <label for="videoCategory" class="form-label">Select Category:</label>
+    <select id="videoCategory" name="videoCategory" required>
       <option value="">-- Select Category --</option>
       <option value="Java">Java</option>
       <option value="Python">Python</option>
       <option value="MongoDB">MongoDB</option>
-  </select>
+    </select>
 
-  <button type="submit" class="btn-upload">Upload</button>
-</form>
-  </div>
-`;
+    <button type="submit" class="btn-upload">Upload</button>
+
+  </form>
+
+</div>`;
+
 });
 
 document.querySelector('.js-upload-announcement').addEventListener('click', () => {
@@ -61,7 +64,7 @@ document.querySelector('.js-upload-notice').addEventListener('click', () => {
   sidebar.innerHTML = `
   <div>
   <h2>Upload Notice</h2>
-  <form action="/content/upload-video" method="POST" class="video-form">
+  <form action="/content/notice" method="POST" class="video-form">
 
   <label for="notice" class="form-label">Notice:</label>
   <input type="text" id="notice" name="notice" placeholder="Enter Notice" required>

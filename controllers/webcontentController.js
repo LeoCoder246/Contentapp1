@@ -1,6 +1,7 @@
 
 const Notice = require('../models/noticeModel');
 const Video = require('../models/videoModels');
+const cloudinary = require("../config/cloudinary");
 exports.getvideos = async(req,res) => {
   try {
     const threeDaysAgo = new Date();
@@ -35,26 +36,70 @@ exports.postnotice = async (req, res) => {
 };
 
 
-
-exports.postVideo = async (req, res) => {
-  if (!req.user) {
-    return res.status(401).json({ error: "User not authenticated" });
-  }
-  const {title, description, videoUrl,imageUrl, videoCategory} = req.body;
-  const video = await Video.create({
-    title,
-    description,
-    videoUrl,
-    imageUrl,
-    videoCategory,
-    createdBy: req.user._id
+const uploadToCloudinary = (fileBuffer, options) => {
+  return new Promise((resolve, reject) => {
+    const uploadStream = cloudinary.uploader.upload_stream(options, (error, result) => {
+      if (error) reject(error);
+      else resolve(result);
+    });
+    uploadStream.end(fileBuffer);
   });
-  res.redirect('/content/videos');
-}
+};
+exports.postVideo = async (req, res) => {
+  try {
+    if (!req.files || !req.files.videoUrl || !req.files.imageUrl) {
+      return res.status(400).send("Both video and thumbnail are required.");
+    }
+
+    // Upload video to Cloudinary
+    const videoResult = await new Promise((resolve, reject) => {
+      const upload = cloudinary.uploader.upload_stream(
+        { resource_type: "video", folder: "videos" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      upload.end(req.files.videoUrl[0].buffer); // Sending the video buffer
+    });
+
+    // Upload image to Cloudinary
+    const imageResult = await new Promise((resolve, reject) => {
+      const upload = cloudinary.uploader.upload_stream(
+        { folder: "thumbnails" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      upload.end(req.files.imageUrl[0].buffer); // Sending the image buffer
+    });
+
+    // Save in MongoDB
+    const newVideo = await Video.create({
+      title: req.body.title || "Untitled",
+      description: req.body.description,
+      videoUrl: videoResult.secure_url,  // ✅ Fixed
+      imageUrl: imageResult.secure_url,  // ✅ Fixed
+      videoCategory: req.body.videoCategory,
+      createdBy: req.user._id,
+    });
+
+    res.redirect("/content/videos"); // Redirect after upload
+  } catch (err) {
+    console.error("Upload error:", err);
+    res.status(500).send("Upload failed.");
+  }
+};
 exports.deleteVideo = async (req, res) => {
+  try {
   const videoId = req.params.id;
   await Video.findByIdAndDelete(videoId);
   res.redirect('/content/videos');
+  } catch (error) {
+    console.error("Error deleting video:", error);
+    res.status(500).send("Server error!");
+  }
 };
 exports.getVideoById = async (req, res) => {
   try {
@@ -65,7 +110,7 @@ exports.getVideoById = async (req, res) => {
           return res.status(404).send("Video not found!");
       }
 
-      res.render('web-content/videopage', { video });
+      res.render('web-content/videopage', { video,   user: req.user});
   } catch (error) {
       console.error("Error fetching video:", error);
       res.status(500).send("Server error!");

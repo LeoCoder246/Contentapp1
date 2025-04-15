@@ -80,36 +80,35 @@
   background-color: rgb(210, 197, 197);
   height: 100vh;
   width: 140px;
-  top: 70px;
-  left: 0;
-  position: fixed;
+ top: 70px;
+ left: 0;
+ position: fixed;
   transition: 0.5s;
   font-size: 11px;
+
 
 }
 .sidebar-nav{
   display: flex;
   flex-direction: column;
- margin-top: 16px;
+
   align-items: center;
   width: 100%;
   transition:  background-color 0.3s ease;
+  z-index: 10;
 }
 .sidebar-nav li {
   width: 100%;
   list-style: none; /* Remove default bullets */
    /* Add spacing between items */
-   border-bottom: 1px solid #c29696c9; /* Add a border at the bottom */
+   
 }
-.main-content {
-  margin-left: 120px;
-  padding-top: 100px;
 
-}
 .nav-item{
   margin: 10px;
  
 }
+
 .icon-name {
   display: flex;
   gap: 10px; /* Space between icon & text */
@@ -130,4 +129,112 @@
 }
 .sidebar-text{
   padding-top: 3px;
+  font-size: 12px;
+}
+
+/* Mobile screens (up to 500px) */
+@media screen and (max-width: 500px) {
+
+  
+  .active{
+    height: 20px;
+   
+   }
+  .icon-name{
+    display: block;
+    padding: 9px;
+    
+    text-align: center;
+  }
+  .icon-name:hover {
+    box-shadow: 5px 0px 6px rgba(37, 37, 37, 0.2);
+    border-bottom: 2px solid rgb(0, 0, 0);
+    background-color: rgba(214, 182, 182, 0.811);
+    
+  }
+  .sidebar-icons{
+   display: none;
+  }
+  .sidebar-text{
+    padding-top: 3px;
+    font-size:9px;
+    text-align: center;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    background-color: rgb(210, 197, 197);
+    width: 100%;
+   
+    
+    transition: all 0.5s ease-in-out;
+  
+  }
+  
+    
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column; /* Stack nav items */
+    align-items: center;
+    width: 100%;
+    padding: 0%;
+    list-style: none;
+    border: none;
+  }
+
+  .sidebar-nav li {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    border-bottom: none;
+  }
+  .main-content {
+    padding: 0%;
+   margin: 0%;
+  }
+
+  .icon-name:hover {
+    box-shadow: 0px -2px 3px rgba(37, 37, 37, 0.2);
+    border-bottom: 1px solid rgb(0, 0, 0);
+  }
+}
+
+
+/* Styles for tablets and mid-sized screens (501px to 768px) */
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(210, 197, 197);
+    height: 90px;
+    width: 100%;
+    transition: 0.5s;
+    font-size: 12px;
+ 
+  }
+  
+  .sidebar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar-nav li {
+    border-bottom: none;
+  }
+  
+  .main-content {
+    padding-left: 0;
+   
+  }
+  
+  .icon-name:hover {
+    box-shadow: 0px -2px 3px rgba(37, 37, 37, 0.2);
+    border-bottom: 1px solid rgb(0, 0, 0);
+  }
 }

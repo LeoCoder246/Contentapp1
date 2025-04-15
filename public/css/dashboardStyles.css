@@ -2,15 +2,17 @@ body{
   height: 100vh;
 }
 .main-content{
-  margin-left: 140px;
-  padding-top: 74px;
+  padding-left: 30px;
+   padding-top: 74px;
+
 }
 .dashboard-main{
   display: flex;
   flex-direction: row;
   gap: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 10px;
+  margin-left: 20px; 
+  width: 100%;
 }
 .dashboard-user-details{
   flex: 2;
@@ -221,4 +223,56 @@ form{
 form:hover{
 box-shadow:  0  3px  10px rgba(0, 0, 0, 0.6);
 transition: 0.2s;
+}
+
+.border-class{
+  height: 50px;
+  background-color: rgb(240, 249, 230);
+  width: 100%;
+}
+.card:hover{
+  box-shadow:  0  3px  10px rgba(0, 0, 0, 0.6);
+  transition: 0.2s;
+animation: spin 2s linear infinite; 
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 500px) {
+    
+  .main-content{
+  margin: 0%;
+    padding: 0%;
+  }
+  .dashboard-main{
+      margin: 0%;
+      flex-direction: column;
+      width: 100%;
+     
+     
+  }
+  .user-data-main{
+    padding-left: 8%;
+
+  }
+  .dashboard-sidebar{
+    padding-bottom: 20px;
+  margin: 0%;
+  }
+  .upload-main{
+    flex-direction: column;
+   
+  }
+  .upload-forms-div{
+width: 90%;
+    margin: 10px;
+   
+   
+}
 }
