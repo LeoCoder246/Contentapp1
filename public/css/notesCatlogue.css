@@ -1,0 +1,43 @@
+
+.bg-image.java{
+  position: fixed;z-index: -5; top: 130px; left: 100px; width: 90%; height:70vh; object-fit: contain;
+}
+.bg-image.python{
+
+  position: fixed;z-index: -5; top: 50px; left: 60px; width: 100%; height:100vh; object-fit: contain;
+}
+.bg-image.mongodb{
+  position: fixed;z-index: -5; top: 150px; left: 100px; width: 94%; height:70vh; object-fit: contain;
+  }
+
+.main-content{
+  padding-top: 80px;
+ 
+}
+.container1{
+ opacity: 0.9;
+ background-color:  rgb(232, 223, 223);
+ padding: 0px;
+ border: 1px solid rgb(217, 210, 210);
+ transition: all 0.3s ease;
+ 
+ 
+}
+.container1:hover{
+  box-shadow: 0px 8px 10px rgba(71, 36, 36, 0.6);
+  transform: translateY(-4px);
+
+}
+.cayloguedata{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  
+  font-weight: 500;
+  font-size: 20px;
+  color: black;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

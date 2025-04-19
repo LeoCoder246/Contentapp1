@@ -1,11 +1,24 @@
 const User =  require('../models/userModels');
+const Notice = require('../models/noticeModel');
 const bcrypt = require('bcrypt');
 const { createToken } = require('../service/jwtService');
 function getlandingPage(req,res){
     res.render('staticViews/landingPage',{ user: req.user || null });
 }
-function getHome(req,res){
-    res.render('staticViews/home',{ user: req.user });
+const getHome= async(req,res) =>{
+    const threeDaysAgo = new Date();
+        threeDaysAgo.setDate(threeDaysAgo.getDate() - 2); // Subtract 3 days
+        threeDaysAgo.setHours(0, 0, 0, 0); // Set time to 00:00:00
+        // Fetch notices from the last 3 days
+        const now = new Date();
+        const notices = await Notice.find({
+          createdAt: { $gte: threeDaysAgo,  $lte: now} // Get data where createdAt is >= threeDaysAgo
+        })
+        .sort({ createdAt: -1 }) // Sort by latest first
+        .populate('createdBy');
+     //console.log('this is notices',notices)
+    
+    res.render('staticViews/home',{ user: req.user, notices });
 }
 
 const getRegister = (req,res) =>{
@@ -37,6 +50,18 @@ const postRegister = async(req, res) => {
 };
 const postLogin =async (req, res) => {
     try {
+        const threeDaysAgo = new Date();
+            threeDaysAgo.setDate(threeDaysAgo.getDate() - 2); // Subtract 3 days
+            threeDaysAgo.setHours(0, 0, 0, 0); // Set time to 00:00:00
+            // Fetch notices from the last 3 days
+            const now = new Date();
+            const notices = await Notice.find({
+              createdAt: { $gte: threeDaysAgo,  $lte: now} // Get data where createdAt is >= threeDaysAgo
+            })
+            .sort({ createdAt: -1 }) // Sort by latest first
+            .populate('createdBy');
+         //console.log('this is notices',notices)
+
         const { email, password } = req.body;
         const user = await User.findOne({ email });
 
@@ -50,7 +75,7 @@ const postLogin =async (req, res) => {
 
         // Set token in cookie & redirect
         res.cookie('token', token, { httpOnly: true, secure: true });
-        res.redirect('/dashboard');  // 🔹 Redirect to dashboard after login
+        res.redirect('/home' );  // 🔹 Redirect to dashboard after login
     } catch (error) {
         res.status(500).json({ message: "Server error" });
     }

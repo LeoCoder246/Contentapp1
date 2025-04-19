@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Display</title>
+    <link rel="stylesheet" href="/css/navbarStyles.css" />
+    <link rel="stylesheet" href="/css/videoStyles.css" />
+    <link rel="stylesheet" href="/css/notesCatlogue.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+           
+        }
+        video {
+            width: 93%;
+            max-width: 800px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        .video-info {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+           
+        }
+    </style>
+</head>
+<body>
+    <%- include ('../partials/header-sidebar.ejs') -%>   
+    <div class="main-content" style=" flex-direction: column; position: relative; height: 500px;  justify-content:start;">
+
+      
+        <% notes.forEach(note => { %>
+        
+       <img   src="/icons<%= note.SubjectName === 'Java' ? '/java.png' :  note.SubjectName === 'Python' ? '/python.png' : note.SubjectName === 'MongoDB' ? '/mongodb.png'  : '/wolf1.png' %>"   class="bg-image <%= note.SubjectName.toLowerCase() %>"  alt="Notes Icon" />
+  
+
+          <div class="container1" style="width: 93%;">
+            <a href="/content/notes/<%= note.SubjectName %>/<%= note._id %>">
+            <div class="cayloguedata"> <%= note.chapterNumber %>.    <%= note.chapterName.toUpperCase() %></div>
+
+            </a>
+          </div>
+
+
+      <% }) %>
+      
+        <%- include ('../partials/notice-sidebar.ejs') -%>
+    </div>
+
+
+<script src="/js/script.js"></script>
+</body>
+</html>

@@ -5,14 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Content Streaming Navbar</title>
     <link rel="stylesheet" href="/css/navbarStyles.css">
+    <link rel="stylesheet" href="/css/videoStyles.css">
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
     <%- include ('../partials/header-sidebar.ejs') -%>
-    <div class="main-content" style="margin-left: 140px;">
-        <h1>Home</h1>
-        <p>Welcome to the home page <%= user.username %>.</p>
-    </div>
+    <div class="main-content" >
+        <div class="container1" style="width: 96%;height: 100%; position: relative;">
+            <div style="display: flex; flex-direction: column;">
+                <div class="texts-round-div">
+                    <div class="small-big-text">
+                        <div class="big-text">
+                            Jump into Learning!   
+                          </div>
+                          <div class="small-text">Browse Chapters, Watch Helpful Videos, and Level Up Your Skills.</div>
+                    </div>
+                    <div class="animation-round-div">
+                        <div class="animation">
+                        
+                             
     
-    <script src="/js/script.js"></script>
+                           
+    
+                            
+    
+                            <div class="ani5"> 
+                                <div class="ani5-round"> e </div>
+                                <div class="ani5-round">  e</div>
+                            </div>
+                            <div class="ani4"> 
+                                <div class="ani4-round"> e </div>
+                                <div class="ani4-round">  e</div>
+                            </div>
+                            <div class="ani3"> 
+                                <div class="ani3-round">  e</div>
+                                <div class="ani3-round">  e</div>
+                            </div>
+                            <div class="ani2"> 
+                                <div class="ani2-round">e  </div>
+                                <div class="ani2-round"> e </div>
+                            </div>
+                            
+                            <div class="ani1"> 
+                                <div class="ani1-round">d  </div>
+                                <div class="ani1-round"> e </div>
+                                
+                            </div>
+                                
+                            <div class="ani2"> 
+                                <div class="ani2-round">e  </div>
+                                <div class="ani2-round"> e </div>
+                            </div>
+    
+                            <div class="ani3"> 
+                                <div class="ani3-round">  e</div>
+                                <div class="ani3-round">  e</div>
+                            </div>
+    
+                            <div class="ani4"> 
+                                <div class="ani4-round"> e </div>
+                                <div class="ani4-round">  e</div>
+                            </div>
+                            <div class="ani5"> 
+                                <div class="ani5-round"> e </div>
+                                <div class="ani5-round">  e</div>
+                            </div>
+                           
+                            </div>
+                           
+                          
+    
+                        <div class="round-div"> 
+                             <div id="wordDisplay"></div>
+                        </div>
+                        
+                    </div>
+                    </div>
+                    <div class="line">
+
+                    </div>
+                    <div class="small-text">We provide helpful videos and notes for better learning.</div>
+                    <div class="line" style="margin-top: 0;">
+
+                    </div>
+                    <%- include ('../partials/notes.ejs') -%>
+
+            </div>
+            
+                
+            </div>
+           
+            <%- include ('../partials/notice-sidebar.ejs') -%>
+        </div>
+       
+ 
+   
+    <script>
+      const text = "BlackWolf is not just a video streaming website. It’s a full educational experience that blends multimedia with knowledge summaries, facts, and notes — all in one place. We believe that students learn better when they watch and read together. That’s why each video you watch is supported by facts, summaries, and even downloadable content. From science concepts to general knowledge, we are building a library of content that is fun, engaging, and meaningful.";
+
+const words = text.split(" ");
+let index = 0;
+let displayText = "";
+
+function showNextWord() {
+    if (index < words.length) {
+        displayText += words[index] + " ";
+        document.getElementById("wordDisplay").textContent = displayText;
+        index++;
+    } else {
+        // Reset after short pause
+        setTimeout(() => {
+            displayText = "";
+            document.getElementById("wordDisplay").textContent = "";
+            index = 0;
+        }, 0); 
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    setInterval(showNextWord,300);
+});
+
+document.getElementById("toggleButton").addEventListener("click", function() {
+  let sidebar = document.getElementById("videoSidebar");
+  if (sidebar.style.display === "none" || sidebar.style.display === "") {
+    sidebar.style.display = "block"; // Show
+  } else {
+    sidebar.style.display = "none"; // Hide
+  }
+});
+        </script>
+    
+    
 </body>
 </html>

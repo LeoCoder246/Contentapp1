@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Display</title>
+    <link rel="stylesheet" href="/css/navbarStyles.css" />
+    <link rel="stylesheet" href="/css/videoStyles.css" />
+    <link rel="stylesheet" href="/css/notes.css" />
+
+    <style>
+     
+        video {
+            width: 93%;
+            max-width: 800px;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+        .video-info {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+           
+        }
+        .notice-input{
+            height: 39px;
+        }
+    </style>
+</head>
+<body>
+    <%- include ('../partials/header-sidebar.ejs') -%>   
+    <div class="main-content" style=" flex-direction: column;">
+        <div class="container1" style="width: 97%;">
+       <%- include ('../partials/notes.ejs') -%>
+        </div>
+        <%- include ('../partials/notice-sidebar.ejs') -%>
+    </div>
+
+
+<script >
+document.getElementById("toggleButton").addEventListener("click", function() {
+  let sidebar = document.getElementById("videoSidebar");
+  if (sidebar.style.display === "none" || sidebar.style.display === "") {
+    sidebar.style.display = "block"; // Show
+  } else {
+    sidebar.style.display = "none"; // Hide
+  }
+});
+</script>
+</body>
+</html>

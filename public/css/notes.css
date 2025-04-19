@@ -1,0 +1,50 @@
+.container1{
+  display: flex;
+  flex-direction: row;
+  margin: 0%;
+  padding: 0%;
+  margin-left: 16px;
+  margin-bottom: 20px;
+}
+
+.notes-topics{
+
+  height: 560px;
+  flex: 1;
+  background: linear-gradient(
+    to top,
+    #dbd7d7 0%,
+    #d9d7d7 50%,
+    #dbd7d7 100%
+  );
+margin: 12px;
+border-radius:70px;
+}
+.notes-topics:hover{
+  transform: translateY(-8px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.topic{
+  margin-top: 40px;
+  font-family: cursive;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.sub-intro{
+  font-family:"Lucida Handwriting";
+  font-size: 15px;
+  text-align: start;
+  margin-inline: 25px;
+  line-height: 20px;
+}
+.flex-info-icon{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cursive{
+  font-family: cursive;
+}

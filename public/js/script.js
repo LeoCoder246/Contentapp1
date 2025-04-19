@@ -17,25 +17,26 @@ document.querySelector('.js-category-container').addEventListener('click', () =>
   const genrateHTML=() => {
   return  `<div class="categorys-main">
  <li class="active" >
-              <a href="/content/video/java"> <div class="categorys" > 
-                     <img class="sidebar-icons"  src="/icons/icons8-home-48.png"> 
-                        <div class="sidebar-text">JAVA</div>
+              <a href="/content/video/Java"> <div class="categorys" > 
+                     <img class="sidebar-icons"  src="/icons/icons8-java-48.png"> <div class="sidebar-text">Java</div>
+                        
                     
                 </div>
               </a>
             </li>
             <li class="active">
-              <a href="/content/video/<%= video.category %>">
+             <a href="/content/video/Python">
+
               <div class="categorys" > 
-                    <img class="sidebar-icons"  src="/icons/icons8-about-48.png"> <div class="sidebar-text">VIDEOS</div>
+                    <img class="sidebar-icons"  src="/icons/icons8-python-48.png"> <div class="sidebar-text">Python</div>
                     
                 </div>
               </a>
             </li>
             <li class="active">
-              <a href="/content/video/<%= video.category %>">
+              <a href="/content/video/MongoDB">
               <div class="categorys"> 
-                         <img class="sidebar-icons"  src="/icons/icons8-contact-us-50.png"> <div class="sidebar-text">CONTACT</div>
+                         <img class="sidebar-icons"  src="/icons/icons8-mongodb-48.png"> <div class="sidebar-text">MongoDB</div>
                        
                     </div>
                   </a> 
@@ -53,3 +54,4 @@ document.querySelector('.js-category-container').addEventListener('click', () =>
 document.querySelector('.js-hamberger').addEventListener('click', () => {
 
 })
+

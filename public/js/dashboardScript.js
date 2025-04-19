@@ -75,3 +75,50 @@ document.querySelector('.js-upload-notice').addEventListener('click', () => {
 </div>
   `;
 });
+
+document.querySelector('.js-upload-notes').addEventListener('click', () => {
+  const sidebar = document.querySelector('.js-dashboard-sidebar');
+  sidebar.innerHTML = "";
+  sidebar.innerHTML = `
+  <div>
+  <h2>Upload Notice</h2>
+  <form action="/content/notes" method="POST" enctype="multipart/form-data" class="video-form">
+
+  <label for="notice" class="form-label">Notes:</label>
+ 
+
+    <select id="SubjectName" name="SubjectName" required>
+      <option value="">-- Select Category --</option>
+      <option value="Java">Java</option>
+      <option value="Python">Python</option>
+      <option value="MongoDB">MongoDB</option>
+    </select>
+   
+    
+   <input type="text" id="chapterName"  name="chapterName" placeholder="Enter Chapter Name" required>
+   <input type="number" id="chapterNumber" name="chapterNumber" placeholder="Enter Chapter Number" required>
+
+     
+    <label for="notesimage" class="form-label">Upload Image:</label>
+    <input type="file" id="img1File" name="image" accept="image/*" required>
+
+      <label for="notesContent" class="form-label">Upload Notes Content:</label>
+    <textarea id="notesContent" placeholder="Enter Notes Content" name="notes" style="height: 100px;" required></textarea>
+
+     <label for="notesExapple" class="form-label">Upload Notes Example:</label>
+    <textarea id="notesContentEx" placeholder="Enter Notes Content example" name="codeExample" style="height: 100px;" required></textarea>
+  <button type="submit" class="btn-upload">Upload</button>
+</form>
+</div>
+  `;
+});
+
+
+document.getElementById("toggleButton").addEventListener("click", function() {
+  let sidebar = document.getElementById("videoSidebar");
+  if (sidebar.style.display === "none" || sidebar.style.display === "") {
+    sidebar.style.display = "block"; // Show
+  } else {
+    sidebar.style.display = "none"; // Hide
+  }
+});

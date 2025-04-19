@@ -7,6 +7,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/css/navbarStyles.css">
     <link rel="stylesheet" href="/css/dashboardStyles.css">
+    <link rel="stylesheet" href="/css/videoStyles.css">
 </head>
 <body>
   <%- include ('../partials/header-sidebar.ejs') -%>
@@ -46,6 +47,7 @@
             <a href="/logout"> <button class="btn">Logout</button></a>
            </div>
         </div>
+        <% if (user.role === 'admin') {%>
       <div class="upload-main">
 
         <div class="upload-forms-div js-upload-video">
@@ -53,7 +55,7 @@
             Upload Videos
           </div>
           <div style="margin-left: 160px;margin-bottom: 10px;">
-            <img src="/icons/icons8-upload-52.png" alt="Card Image" width="30px" height="30px" style=" ">
+            <img src="/icons/icons8-upload-52.png" alt="Card Image" width="30px" height="30px" >
           </div>
         </div>
         <div class="upload-forms-div js-upload-announcement">
@@ -69,10 +71,20 @@
            Upload notices
          </div>
          <div style="margin-left: 160px;margin-bottom: 10px;">
-           <img src="/icons/icons8-upload-52.png" alt="Card Image" width="30px" height="30px" style=" ">
+           <img src="/icons/icons8-upload-52.png" alt="Card Image" width="30px" height="30px">
          </div>
         </div>
+        <div class="upload-forms-div js-upload-notes">
+          <div class="upload-forms-text">
+            Upload notes
+          </div>
+          <div style="margin-left: 160px;margin-bottom: 10px;">
+            <img src="/icons/icons8-upload-52.png" alt="Card Image" width="30px" height="30px" >
+          </div>
+         </div>
       </div>
+
+      <%}%>
       </div>
      
       <div class="dashboard-sidebar js-dashboard-sidebar "> 
@@ -95,8 +107,11 @@
         <p class="p">For any inquiries, reach out to us at: <span class="highlight">leo.coder246@gmail.com</span></p></a>
       </div>
     </div>
+    <%- include ('../partials/notice-sidebar.ejs') -%>
   </div>
      
-   <script src="/js/dashboardScript.js"></script>
+   <script src="/js/dashboardScript.js">
+    
+   </script>
 </body>
 </html>

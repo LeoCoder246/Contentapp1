@@ -1,0 +1,187 @@
+
+.big-text{
+  font-size: 70px;
+  font-weight: 400;
+  color: hsl(0, 9%, 65%);
+  margin-bottom: 10px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman';
+  font-style: italic;
+  text-align: start;
+}
+.small-text{
+  font-size: 15px;
+  font-weight: 200;
+  color: hsl(0, 8%, 61%);
+  margin-bottom: 20px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman';
+  font-style: italic;
+  text-align: center;
+}
+.small-big-text{
+  display: flex;
+  flex-direction: column;
+  width: 54%;
+
+}
+.texts-round-div{
+  display: flex;
+  flex-direction: column;
+  
+}
+.round-div{
+  position: sticky;
+  top: 200px;
+  flex: 3;
+  right: 0;
+  background-color: rgb(216, 202, 202);
+  height: 730px;
+  border-top-left-radius: 800px;
+  border-top-right-radius: 170px;
+  border-bottom-left-radius: 100px;
+}
+.animation{
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+  
+  
+  margin-top: 100px;
+   margin-inline: 40px;
+  
+}
+.ani1, .ani2, .ani3, .ani4, .ani5{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 40px;
+   width: 100px;
+
+}
+.ani1:hover .ani1-round{
+
+  width: 7px;
+  height:7px;
+  transition: all 0.2s ease-in-out;
+} 
+.ani2:hover .ani2-round{
+
+  width: 10px;
+  height:10px;
+  transition: all 0.2s ease-in-out;
+}
+.ani3:hover .ani3-round{
+
+  width: 14px;
+  height:14px;
+  transition: all 0.2s ease-in-out;
+}
+.ani4:hover .ani4-round{
+
+  width: 15px;
+  height:15px;
+  transition: all 0.2s ease-in-out;
+}
+.ani5:hover .ani5-round{
+  
+    width: 10px;
+    height:10px;
+    transition: all 0.2s ease-in-out;
+}
+.ani1-round{
+   color: transparent;
+   width: 10px;
+   height:10px;
+   background-color: rgb(151, 144, 144);
+   border-radius: 20px;
+}
+
+.ani2-round{
+  color: transparent;
+   width: 20px;
+   height: 20px;
+   background-color: rgb(215, 208, 208);
+   border-radius: 20px;
+}
+.ani3-round{
+  color: transparent;
+   width: 25px;
+   height: 25px;
+   background-color: rgb(233, 222, 222);
+   border-radius: 20px;
+}
+.ani4-round{
+  color: transparent;
+   width: 30px;
+   height: 30px;
+   background-color: rgb(224, 219, 219);
+   border-radius: 20px;
+}
+.ani5-round{
+  color: transparent;
+   width: 35px;
+   height: 35px;
+   background-color: rgb(221, 216, 216);
+   border-radius: 20px;
+}
+.animation-round-div{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+
+
+
+
+@keyframes colorChange {
+  0% { color: rgb(174, 170, 170); }
+ 
+  30% { color: rgb(107, 102, 102); }
+
+  100% { color: rgb(158, 156, 156); }
+}
+
+#wordDisplay {
+  font-size: 21px; /* Set font size */
+  line-height: 1.5; /* Line height */
+  height: 100px; /* Fixed height */
+  text-align: start;
+  font-weight: 800px;
+ 
+  animation: colorChange 3s infinite; /* Apply color change animation */
+  margin-left: 35%;
+  margin-top: 30%;
+  margin-right: 10%;
+}
+.line{
+  height: 4px;
+  border-top: 4px solid #ccc;
+  margin: 10px 0;
+
+  width: 100%;
+} 
+
+.div-topics{
+  box-shadow: inset 0 -0px 60px#ded9d9;;
+  background-color: #e2dada;
+margin-bottom: 40px;
+  padding-top: 30px;
+border-radius:50px;
+    transition: box-shadow  0.4s ease-in-out;
+}
+
+.font-family{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+   margin-inline: 17%;
+  font-size: 17px;
+}
+
+.hidden{
+  display: none;
+}
+
+.div-topics:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 -0px 60px rgb(178, 167, 167), 0px 10px 10px rgb(176, 167, 167); 
+}
