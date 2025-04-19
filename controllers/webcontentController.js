@@ -139,7 +139,7 @@ exports.getVideoById = async (req, res) => {
   try {
 
     const threeDaysAgo = new Date();
-    threeDaysAgo.setDate(threeDaysAgo.getDate() - 2); // Subtract 3 days
+    threeDaysAgo.setDate(threeDaysAgo.getDate() - 2); // Subtract 2 days
     threeDaysAgo.setHours(0, 0, 0, 0); // Set time to 00:00:00
     // Fetch notices from the last 3 days
     const now = new Date();

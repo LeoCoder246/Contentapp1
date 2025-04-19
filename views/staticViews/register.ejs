@@ -9,19 +9,50 @@
     <link rel="stylesheet" href="/css/navbarStyles.css">
 </head>
 <body>
-  <%- include ('../partials/header-sidebar.ejs') -%>
+  
+  <div class="header">
+    <nav class="navbar">
+        <div class="left-section"><img class="logo-icon" src="/icons/wolf.PNG" width="70px" >
+            <img class="logo-name" src="/icons/wolf1.png">
+        </div>
+  <% if(!user){ %>
+        <ul class="navbar-nav" >
+           
+            <div class="nav-item">
+                <a href="/login" class="nav-link">Login</a>
+              </div>
+            <div class="nav-item">
+                <a href="/register" class="nav-link">Register</a>
+            </div>
+            <%} else { %>
+              <div class="nav-item" >
+                <a href="/register" class="nav-link">Register</a>
+              </div>
+              <div class="nav-item" style="font-size: 18px; font-weight: 600;">
+                <a style="color: rgb(90, 71, 71);" ><%= user.username %></a>
+              </div>
+          
+          
+        </ul>
+            <% } %>
+      
+    </nav>
+    
+  </div>
   <div class="main-content">
+    <button class="btn-curve2" onclick="window.location.href='/home'"><img src="/icons/left-arrow.png"/></button>
   <div class="container1">
-
+  
   <div class="container">
-        <h2>Login</h2>
+    
+        <h2>Register</h2>
         <form action="/register" method="POST">
-          <input type="text" name="username" placeholder="Username" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="text" name="secretkey" placeholder="secretkey">
-            <button type="submit">Login</button>
-            <p>Already have an account? <a href="/login">Login</a></p>
+          <input type="text" name="username" placeholder="Username" class="input1" required>
+            <input type="email" name="email" placeholder="Email" class="input2" required>
+            <input type="password" name="password" placeholder="Password " class="input3" required>
+            <input type="text" name="secretkey" class="input4" placeholder="secretkey">
+            <button type="submit" class="login-btn">Register</button>
+            <p>Already have an account? <a style="color: blue;" href="/login">login</a></p>
         </form>
     </div>
     </div>

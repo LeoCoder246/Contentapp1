@@ -121,7 +121,16 @@
   background-color: rgba(214, 182, 182, 0.811);
   
 }
-
+.user-initial{
+  background-color: black;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .sidebar-icons {
   width: 18px; /* Adjust icon size */

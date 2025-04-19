@@ -1,4 +1,5 @@
 const express = require('express');
+const Notice = require('../models/noticeModel');
 const { getHome, postLogin, getRegister, postRegister, getLogin , getlandingPage } = require('../controllers/staticControllers');
 const Video = require('../models/videoModels');
 const staticRouter = express.Router();

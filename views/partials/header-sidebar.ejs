@@ -13,21 +13,22 @@
               <a href="/register" class="nav-link">Register</a>
           </div>
           <%} else { %>
-            <div class="nav-item">
-              <a  ><%= user.username %></a>
-            </div>
-            <div class="nav-item">
+            <div class="nav-item" >
               <a href="/register" class="nav-link">Register</a>
             </div>
-          <div class="nav-item">
-            <a href="/dashboard" class="nav-link">Dashboard</a>
-          </div>
+            <div class="nav-item" style="font-size: 18px; font-weight: 600;">
+              <a style="color: rgb(90, 71, 71);" ><%= user.username %></a>
+            </div>
+        
+        
       </ul>
           <% } %>
     
   </nav>
   
 </div>
+
+
 <div class="sidebar">
 
       <ul class="sidebar-nav" >
@@ -43,7 +44,7 @@
           <li class="active">
             <a href="/content/videos">
             <div class="icon-name" > 
-                  <img class="sidebar-icons"  src="/icons/icons8-about-48.png"> <div class="sidebar-text">VIDEOS</div>
+                  <img class="sidebar-icons"  src="/icons/video.png"> <div class="sidebar-text">VIDEOS</div>
                   
               </div>
             </a>
@@ -56,14 +57,29 @@
                   </div>
                 </a> 
           </li>
+          
           <li class="active" id="toggleButton">
             <div class="icon-name" style="color: black; cursor: pointer;"> 
-                       <img class="sidebar-icons"  src="/icons/icons8-contact-us-50.png"> <div class="sidebar-text">NOTICES</div>
+                       <img class="sidebar-icons"  src="/icons/bell.png"> <div class="sidebar-text">NOTICES</div>
                      
                   </div>
                 </a> 
           </li>
-      
+          <li class="active" >
+            <a href="/dashboard">
+              <div class="icon-name">
+                <% if (user && user.username) { %>
+                  <!-- If user exists, show the first letter of the username -->
+                  <div class="user-initial"><%= user.username.charAt(0).toUpperCase() %></div>
+                <% } else { %>
+                  <!-- If user doesn't exist, show a default image or placeholder -->
+                  <div><img src="/icons/profile.png" alt="User Image" style="width: 30px; height: 30px; border-radius: 50%;" /></div>
+                <% } %> 
+              <div class="sidebar-text" style="font-size: 12px;">DASHBOARD</div>
+                     
+                  </div>
+                </a> 
+          </li>
       </ul>
 
  

@@ -22,7 +22,7 @@ const getHome= async(req,res) =>{
 }
 
 const getRegister = (req,res) =>{
-    res.render('staticViews/register',{ user: req.user || null });
+    res.render('staticViews/register',{ user: req.user || null,currentUrl: req.originalUrl  });
 }
 const getLogin = (req,res) =>{
     res.render('staticViews/login',{ user: req.user || null });

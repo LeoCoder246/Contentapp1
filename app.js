@@ -21,7 +21,10 @@ app.use(express.static('public'));
 
 app.use('/',staticRouter);
 app.use('/content', webcontentRouter)
- 
+app.use((req, res) => {
+    res.status(404).send('<h1>404 - Page Not Found</h1>');
+  });
+  
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on port http://localhost:${PORT}`));
 
