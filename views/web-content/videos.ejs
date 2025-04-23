@@ -1,58 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Streaming Navbar</title>
-    <link rel="stylesheet" href="/css/navbarStyles.css" />
-    <link rel="stylesheet" href="/css/videoStyles.css" />
-  </head>
-  <body>
-    <%- include ('../partials/header-sidebar.ejs') -%>
-    <div class="main-content" >
-  
-        
-        <div class="container1"  style="width: 94%; height: 100%;" >
-          
-     <div class="category-video-main" > 
-      <div class="category-container js-category-container" style="padding: 16px;">
-        Categories
-        <img src="/icons/click.png" class="click-icon" width="23" height="22" />
-      </div>
-       
-      <ul class=" js-category-main ">
-       
-    
-    </ul>
 
-     </div>
-          <div class="container">
-            <% videos.forEach(video => { %>
-              <a href="/content/video/<%= video.videoCategory%>/<%= video._id %>" class="card-link">
-              <div class="card">
-              <img src="<%= video.imageUrl %>" alt="Card Image" class="card-image" />
-          
-              <div class="card-content">
-                <div class="card-title"><%= video.title %></div>
-               
-                 <div style="display: flex; flex-direction: row; justify-content: space-between;">
-                  <div style="margin-left: 7px; font-size: 12px;"><%= video.createdBy.username %></div>
-                  <div style="font-size: 12px;"><%= new Date(video.createdAt).toLocaleDateString() %></div>
-                 
-                 </div>
-              </div>
-            </div>
-          </a>
-            <%})%>
-        
-  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Streaming Navbar</title>
+  <link rel="stylesheet" href="/css/navbarStyles.css" />
+  <link rel="stylesheet" href="/css/videoStyles.css" />
+</head>
+
+<body>
+  <%- include ('../partials/header-sidebar.ejs') -%>
+    <div class="main-content">
+
+
+      <div class="container1" style="width: 99%; height: 100%;">
+
+        <div class="category-video-main">
+          <div class="category-container js-category-container" style="padding: 16px;">
+            Categories
+            <img src="/icons/click.png" class="click-icon" width="23" height="22" />
           </div>
-       </div>
-      
-   
-       <%- include ('../partials/notice-sidebar.ejs') -%>
-    
+
+          <ul class=" js-category-main ">
+
+
+          </ul>
+
+        </div>
+        <div class="container">
+          <% videos.forEach(video=> { %>
+            <a href="/content/video/<%= video.videoCategory%>/<%= video._id %>" class="card-link">
+              <div class="card">
+                <img src="<%= video.imageUrl %>" alt="Card Image" class="card-image" />
+
+                <div class="card-content">
+                  <div class="card-title">
+                    <%= video.title %>
+                  </div>
+
+                  <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                    <div style="margin-left: 7px; font-size: 12px;">
+                      <%= video.createdBy.username %>
+                    </div>
+                    <div style="font-size: 12px;">
+                      <%= new Date(video.createdAt).toLocaleDateString() %>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </a>
+            <%})%>
+
+
+        </div>
+      </div>
+
+
+      <%- include ('../partials/notice-sidebar.ejs') -%>
+
     </div>
     <script src="/js/script.js"></script>
-  </body>
+</body>
+
 </html>

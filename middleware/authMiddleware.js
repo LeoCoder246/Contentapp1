@@ -3,7 +3,7 @@ const { verifyToken } = require('../service/jwtService');
 
 function authMiddleware(req, res, next) {
     const token = req.cookies.token;
-    
+
     if (!token) {
         return res.redirect('/login');  // 🔹 Redirect if no token
     }

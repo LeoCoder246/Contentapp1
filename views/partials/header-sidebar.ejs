@@ -1,7 +1,11 @@
 <div class="header">
   <nav class="navbar">
-      <div class="left-section"><img class="logo-icon" src="/icons/wolf.PNG" width="70px" >
+      <div class="left-section"> 
+        <a href="/home"> <div>
+          <img class="logo-icon" src="/icons/wolf.PNG" width="70px" >
           <img class="logo-name" src="/icons/wolf1.png">
+        </div>
+        </a>
       </div>
 <% if(!user){ %>
       <ul class="navbar-nav" >
@@ -58,13 +62,14 @@
                 </a> 
           </li>
           
-          <li class="active" id="toggleButton">
+          <li class="active" id="toggleButton" style="display: none;">
             <div class="icon-name" style="color: black; cursor: pointer;"> 
                        <img class="sidebar-icons"  src="/icons/bell.png"> <div class="sidebar-text">NOTICES</div>
                      
                   </div>
                 </a> 
           </li>
+          
           <li class="active" >
             <a href="/dashboard">
               <div class="icon-name">
@@ -84,3 +89,8 @@
 
  
 </div>
+<script>
+  if (window.location.pathname !== "/dashboard") {
+    document.getElementById("toggleButton").style.display = "block";
+  }
+</script>

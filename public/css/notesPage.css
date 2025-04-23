@@ -41,7 +41,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  margin-left: 300px;
+  margin-left: 340px;
   width: 50px;
   border-radius: 20px; 
   border: 1px solid #d4d2d2;
@@ -60,7 +60,7 @@
   position: fixed;
   z-index: 20;
   bottom: 0;
-  right: 40px;
+  right: 20px;
 
   
 

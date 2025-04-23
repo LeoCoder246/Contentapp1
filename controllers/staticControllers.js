@@ -7,16 +7,15 @@ function getlandingPage(req,res){
 }
 const getHome= async(req,res) =>{
     const threeDaysAgo = new Date();
-        threeDaysAgo.setDate(threeDaysAgo.getDate() - 2); // Subtract 3 days
-        threeDaysAgo.setHours(0, 0, 0, 0); // Set time to 00:00:00
-        // Fetch notices from the last 3 days
+        threeDaysAgo.setDate(threeDaysAgo.getDate() - 2); 
+        threeDaysAgo.setHours(0, 0, 0, 0); 
         const now = new Date();
         const notices = await Notice.find({
-          createdAt: { $gte: threeDaysAgo,  $lte: now} // Get data where createdAt is >= threeDaysAgo
+          createdAt: { $gte: threeDaysAgo,  $lte: now}
         })
-        .sort({ createdAt: -1 }) // Sort by latest first
+        .sort({ createdAt: -1 }) 
         .populate('createdBy');
-     //console.log('this is notices',notices)
+    
     
     res.render('staticViews/home',{ user: req.user, notices });
 }
@@ -34,7 +33,7 @@ const postRegister = async(req, res) => {
     if(existingUser){
         return res.status(400).send("User with this email already exists");
     }
-    let role = "user"; // Default role
+    let role = "user";
     let secretkey1= 'secretkey12345';
     if( secretkey1 === secretkey){
        role = "admin"
@@ -51,16 +50,16 @@ const postRegister = async(req, res) => {
 const postLogin =async (req, res) => {
     try {
         const threeDaysAgo = new Date();
-            threeDaysAgo.setDate(threeDaysAgo.getDate() - 2); // Subtract 3 days
-            threeDaysAgo.setHours(0, 0, 0, 0); // Set time to 00:00:00
-            // Fetch notices from the last 3 days
+            threeDaysAgo.setDate(threeDaysAgo.getDate() - 2); 
+            threeDaysAgo.setHours(0, 0, 0, 0); 
+           
             const now = new Date();
             const notices = await Notice.find({
-              createdAt: { $gte: threeDaysAgo,  $lte: now} // Get data where createdAt is >= threeDaysAgo
+              createdAt: { $gte: threeDaysAgo,  $lte: now}
             })
-            .sort({ createdAt: -1 }) // Sort by latest first
+            .sort({ createdAt: -1 }) 
             .populate('createdBy');
-         //console.log('this is notices',notices)
+        
 
         const { email, password } = req.body;
         const user = await User.findOne({ email });
@@ -70,12 +69,12 @@ const postLogin =async (req, res) => {
         const isMatch = await user.comparePassword(password);
         if (!isMatch) return res.status(400).json({ message: "Invalid credentials" });
 
-        // Generate JWT
+
         const token = createToken(user);
 
-        // Set token in cookie & redirect
+      
         res.cookie('token', token, { httpOnly: true, secure: true });
-        res.redirect('/home' );  // 🔹 Redirect to dashboard after login
+        res.redirect('/home' );  
     } catch (error) {
         res.status(500).json({ message: "Server error" });
     }

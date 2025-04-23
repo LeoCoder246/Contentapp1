@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,73 +10,89 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-           
+
         }
+
         video {
             width: 93%;
             max-width: 800px;
             border: 2px solid #333;
             border-radius: 10px;
         }
+
         .video-info {
             margin-top: 15px;
             display: flex;
             flex-direction: column;
-           
+
         }
     </style>
 </head>
+
 <body>
-    <%- include ('../partials/header-sidebar.ejs') -%>   
-    <div class="main-content" style=" flex-direction: column;">
+    <%- include ('../partials/header-sidebar.ejs') -%>
+        <div class="main-content" style=" flex-direction: column;">
 
-        <div class="container1" style="width: 93%;">
-            <div class="category-video-main" > 
-                <div class="category-container js-category-container">
-                    <div style="display:flex; flex-direction: row;">
-                        <div>
-                          <img src="/icons<%= category ==='Java' ? '/icons8-java-48.png' : category ==='Python' ? '/icons8-python-48.png' :category ==='MongoDB' ? '/icons8-mongodb-48.png' :'/click.png'  %> " class="category-icon"  width="30px" height="35px"/>
+            <div class="container1" style="width: 93%;">
+                <div class="category-video-main">
+                    <div class="category-container js-category-container">
+                        <div style="display:flex; flex-direction: row;">
+                            <div>
+                                <img src="/icons<%= category ==='Java' ? '/icons8-java-48.png' : category ==='Python' ? '/icons8-python-48.png' :category ==='MongoDB' ? '/icons8-mongodb-48.png' :'/click.png'  %> "
+                                    class="category-icon" width="30px" height="35px" />
+                            </div>
+
+                            <div style="font-size: 12px; display: flex; align-items: center; justify-content: center;">
+                                <%= category %>
+                            </div>
                         </div>
-                       
-                        <div style="font-size: 12px; display: flex; align-items: center; justify-content: center;"><%= category %></div>
-                      </div>
-              <img src="/icons/click.png" class="click-icon" width="23" height="22" />
+                        <img src="/icons/click.png" class="click-icon" width="23" height="22" />
+                    </div>
+
+                    <ul class=" js-category-main ">
+
+
+                    </ul>
+
                 </div>
-                 
-                <ul class=" js-category-main ">
-                 
-              
-              </ul>
-          
-               </div>
-        <div class="video-container">
+                <div class="video-container">
 
-        <video id="videoPlayer" controls width="730px" height="450px">
-            <source src="<%= video.videoUrl %>" type="video/mp4" >
-            Your browser does not support the video tag.
-        </video>
-        <div class="video-info">
-            <div style="flex: 3; text-align: start;"> 
-                <div id="videoTitle" ><%= video.title %></div>
-                <div id="videoDescription"><%=video.description%></div>
+                    <video id="videoPlayer" controls width="730px" height="450px">
+                        <source src="<%= video.videoUrl %>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-info">
+                        <div style="flex: 3; text-align: start;">
+                            <div id="videoTitle">
+                                <%= video.title %>
+                            </div>
+                            <div id="videoDescription">
+                                <%=video.description%>
+                            </div>
+                        </div>
+                        <div class="video-info-details" style="display: flex; flex-direction: row;">
+                            <div style="flex: 6; padding-top: 20px; text-align: end; font-size: 12px;">
+                                <strong>Created by:</strong> <span id="videoCreator">
+                                    <%=video.createdBy.username%>
+                                </span>
+                            </div>
+
+                            <div style="flex: 1;padding-top: 20px;font-size: 12px;"><strong>Date:</strong> <span
+                                    id="videoDate">
+                                    <%= new Date(video.createdAt).toLocaleDateString()%>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-           <div class="video-info-details" style="display: flex; flex-direction: row;">
-            <div style="flex: 6; padding-top: 20px; text-align: end; font-size: 12px;">
-                <strong>Created by:</strong> <span id="videoCreator"><%=video.createdBy.username%></span>
-            </div>
-            
-            <div style="flex: 1;padding-top: 20px;font-size: 12px;"><strong>Date:</strong> <span id="videoDate"><%= new Date(video.createdAt).toLocaleDateString()%></span>
-            </div>
-           </div>
-            
+
+            <%- include ('../partials/notice-sidebar.ejs') -%>
         </div>
-    </div>
-        </div>
-        
-        <%- include ('../partials/notice-sidebar.ejs') -%>
-    </div>
 
 
-<script src="/js/script.js"></script>
+        <script src="/js/script.js"></script>
 </body>
+
 </html>

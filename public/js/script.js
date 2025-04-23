@@ -1,4 +1,4 @@
-document.getElementById("toggleButton").addEventListener("click", function() {
+document.getElementById("toggleButton").addEventListener("click", function () {
   let sidebar = document.getElementById("videoSidebar");
   if (sidebar.style.display === "none" || sidebar.style.display === "") {
     sidebar.style.display = "block"; // Show
@@ -11,11 +11,11 @@ document.getElementById("toggleButton").addEventListener("click", function() {
 document.querySelector('.js-category-container').addEventListener('click', () => {
   const sidebar = document.querySelector('.js-category-main'); // Select the sidebar
   sidebar.innerHTML = ""; // Clear the sidebar
-  
-  
 
-  const genrateHTML=() => {
-  return  `<div class="categorys-main">
+
+
+  const genrateHTML = () => {
+    return `<div class="categorys-main">
  <li class="active" >
               <a href="/content/video/Java"> <div class="categorys" > 
                      <img class="sidebar-icons"  src="/icons/icons8-java-48.png"> <div class="sidebar-text">Java</div>
@@ -44,14 +44,12 @@ document.querySelector('.js-category-container').addEventListener('click', () =>
             
     </div>`
   }
-    sidebar.innerHTML = genrateHTML();
+  sidebar.innerHTML = genrateHTML();
 
 })
 
 
 
 
-document.querySelector('.js-hamberger').addEventListener('click', () => {
 
-})
 

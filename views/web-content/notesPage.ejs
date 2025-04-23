@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,50 +8,57 @@
     <link rel="stylesheet" href="/css/videoStyles.css" />
     <link rel="stylesheet" href="/css/notesPage.css" />
     <style>
-      
+
     </style>
 </head>
+
 <body>
-    <%- include ('../partials/header-sidebar.ejs') -%>   
-    <div class="main-content" style=" flex-direction: column;">
+    <%- include ('../partials/header-sidebar.ejs') -%>
+        <div class="main-content" style=" flex-direction: column;">
 
-        <div class="container1" style="width: 93%;">
-            
-      <div class="background-curve">
-        <div class="curve1" >
-            <img src="<%= notes.image%>" class="image3" width="85%" height="80%" />
-        </div>
+            <div class="container1" style="width: 99%;">
 
-        
-        <div class="curve2">
-            <div class="curve2-1">  
-                <button class="btn-curve2" onclick="window.location.href='/content/notes/<%= notes.SubjectName%>'"><img src="/icons/left-arrow.png"/></button>
+                <div class="background-curve">
+                    <div class="curve1">
+                        <img src="<%= notes.image%>" class="image3" width="85%" height="80%" />
+                    </div>
+
+
+                    <div class="curve2">
+                        <div class="curve2-1">
+                            <button class="btn-curve2"
+                                onclick="window.location.href='/content/notes/<%= notes.SubjectName%>'"><img
+                                    src="/icons/left-arrow.png" /></button>
+                        </div>
+                        <div class="curve2-2">
+                            <div class="curve2-2-1">Chapter:- <%= notes.chapterNumber %>
+                            </div>
+                            <div class="curve2-2-2">
+                                <%= notes.chapterName %>
+                            </div>
+
+                            <div class="curve2-2-3"><img src="/icons/<%= notes.SubjectName.toLowerCase() %>.png"
+                                    alt="Notes Icon" width="80px" height="80px"
+                                    style="border-radius: 50%; border: 1px solid #d7d7d7; object-fit: cover;" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="notes-data">
+                    <div class="notes-discription">
+                        <%= notes.notes%>
+                    </div>
+                    <div class="notes-example">
+                        <%= notes.codeExample%>
+                    </div>
+                </div>
             </div>
-            <div class="curve2-2">
-                <div class="curve2-2-1">Chapter:- <%= notes.chapterNumber %></div>
-                <div class="curve2-2-2"><%= notes.chapterName %></div>
-                
-                <div class="curve2-2-3"><img   src="/icons/<%= notes.SubjectName.toLowerCase() %>.png"  alt="Notes Icon" width="80px" height="80px"  style="border-radius: 50%; border: 1px solid #d7d7d7; object-fit: cover;" /></div>
-                
-            </div>
-        </div>
-       
 
-        </div>
-        <div class="notes-data">
-            <div class="notes-discription"><%= notes.notes%></div>
-            <div class="notes-example"><%= notes.codeExample%></div>
-
-        </div>
-       
-
-      </div>
-      
-      <%- include ('../partials/notice-sidebar.ejs') -%>
+            <%- include ('../partials/notice-sidebar.ejs') -%>
         </div>
 
 
 
-<script src="/js/script.js"></script>
+        <script src="/js/script.js"></script>
 </body>
+
 </html>

@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,40 @@
     <link rel="stylesheet" href="/css/videoStyles.css" />
     <link rel="stylesheet" href="/css/notesCatlogue.css" />
     <style>
-    
-       
+
+
     </style>
 </head>
+
 <body>
-    <%- include ('../partials/header-sidebar.ejs') -%>   
-    <div class="main-content" style=" flex-direction: column; position: relative; height: 500px;  justify-content:start;">
-
-      
-        <% notes.forEach(note => { %>
-        
-       <img   src="/icons<%= note.SubjectName === 'Java' ? '/java.png' :  note.SubjectName === 'Python' ? '/python.png' : note.SubjectName === 'MongoDB' ? '/mongodb.png'  : '/wolf1.png' %>"   class="bg-image <%= note.SubjectName.toLowerCase() %>"  alt="Notes Icon" />
-  
-
-          <div class="container1" style="width: 93%;">
-            <a href="/content/notes/<%= note.SubjectName %>/<%= note._id %>">
-            <div class="cayloguedata"> <%= note.chapterNumber %>.    <%= note.chapterName.toUpperCase() %></div>
-
-            </a>
-          </div>
+    <%- include ('../partials/header-sidebar.ejs') -%>
+        <div class="main-content"
+            style=" flex-direction: column; position: relative; height: 500px;  justify-content:start;">
 
 
-      <% }) %>
-      
-        <%- include ('../partials/notice-sidebar.ejs') -%>
-    </div>
+            <% notes.forEach(note=> { %>
+
+                <img src="/icons<%= note.SubjectName === 'Java' ? '/java.png' :  note.SubjectName === 'Python' ? '/python.png' : note.SubjectName === 'MongoDB' ? '/mongodb.png'  : '/wolf1.png' %>"
+                    class="bg-image <%= note.SubjectName.toLowerCase() %>" alt="Notes Icon" />
 
 
-<script src="/js/script.js"></script>
+                <div class="container1" style="width: 98%;margin: 0%;">
+                    <a href="/content/notes/<%= note.SubjectName %>/<%= note._id %>">
+                        <div class="cayloguedata">
+                            <%= note.chapterNumber %>. <%= note.chapterName.toUpperCase() %>
+                        </div>
+
+                    </a>
+                </div>
+
+
+                <% }) %>
+
+                    <%- include ('../partials/notice-sidebar.ejs') -%>
+        </div>
+
+
+        <script src="/js/script.js"></script>
 </body>
+
 </html>
